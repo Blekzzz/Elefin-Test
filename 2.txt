@@ -1,0 +1,72 @@
+/**
+ * ==============================
+ * CASE 2
+ * ==============================
+ * Negara-negara yang mengikuti FIFA World Cup 2022 dibagi menjadi 8 group.
+ * Untuk bisa lolos ke babak selanjutnya (16 besar) diambil perwakilan 2 negara dengan poin tertinggi dari masing-masing group.
+ * Data hasil dari seluruh pertandingan di fase group sudah dicatat di sebuah file dengan format JSON di folder assets/tables.json
+ * Negara mana sajakah yang lolos ke babak 16 besar? Buatlah sebuah program untuk menampilkan negara-negara yang lolos ke babak 16 besar.
+ * 
+ * Penentuan poin sebagai berikut:
+ * Jika menang (win), tim mendapatkan 3 poin
+ * Jika seri (draw), tim mendapatkan 1 poin
+ * Jika kalah (lose), tim mendapatkan poin 0
+ * 
+ * Example Output:
+ * [ { name: "Indonesia", group: "Y", match_played: 3, points: 0 } ]
+ */
+
+/**
+ * ==============================
+ * TYPE YOUR PSEUDOCODE BELOW
+
+STORE tables WITH world cup data
+STORE result WITH array
+
+FOR tables FROM 0 TO tables.length INCREMENT BY 1
+    STORE temp WITH object
+    SET temp.name WITH tables.name
+    SET temp.group WITH tables.group
+    SET temp.match_played WITH tables.matches.length
+    SET temp.points WITH 0
+
+    FOR i FROM 0 TO tables.matches.length INCREMENT BY 1
+        IF result IS "win"
+            temp.points + 3
+        ELSE IF result IS "draw"
+            temp.points + 1
+        END IF
+    END FOR
+
+    SET result WITH temp
+END FOR
+
+DISPLAY result
+
+
+ * ==============================
+ * 
+ */
+
+// TYPE YOUR CODE BELOW
+
+const tables = require('./assets/tables.json')
+let result = []
+
+tables.forEach(el => {
+    let temp = {}
+    temp.name = el.name
+    temp.group = el.group
+    temp.match_played = el.matches.length
+    temp.points = 0
+    el.matches.forEach(e => {
+        if (e.result == "win") {
+            temp.points = temp.points + 3
+        } else if (e.result == "draw") {
+            temp.points = temp.points + 1
+        }
+    })
+    result.push(temp)
+})
+
+console.log(result)

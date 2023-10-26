@@ -1,0 +1,9 @@
+/**
+ * ==============================
+ * CASE 3
+ * ==============================
+ * 
+ * Terdapat sebuah bengkel otomotif yang menawarkan jasa servis kendaraan mobil dan motor.
+ * Setiap merek dari kendaraan mobil dan motor tersebut memiliki jenis dan tipe yang berbeda-beda.
+ * Jika kamu diminta membuat program untuk booking servis di bengkel tersebut, bagaimana kamu akan membuat skema databasenya?
+ */

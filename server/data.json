@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "companyName": "Elefin",
+      "ceoName": "Reddy Chandra",
+      "phoneNumber": "085156751865",
+      "password": "testes"
+    },
+    {
+      "companyName": "Blekzzz",
+      "ceoName": "Nathanza Gaurangga",
+      "phoneNumber": "085156751865",
+      "password": "testes",
+      "id": 2
+    }
+  ]
+}

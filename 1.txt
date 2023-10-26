@@ -1,0 +1,98 @@
+/**
+ * ==============================
+ * CASE 1
+ * ==============================
+ * Palindrome merupakan sebuah kata, frasa, angka, atau serangkaian simbol yang jika dibaca bolak-balik akan tetap sama.
+ * Contohnya adalah kata MADAM yang jika dibaca terbalik tetaplah MADAM dan 2002 jika dibalik tetaplah 2002
+ * 
+ * Hasil perkalian bilangan dengan jumlah 2 digit terbesar saat ini adalah 9009 yang didapat dari 91 x 99
+ * 
+ * Dengan berbekal input integer n sebagai jumlah digit (asumsikan n <= 4),
+ * carilah hasil perkalian dari bilangan sejumlah n-digit yang merupakan Palindrome terbesar
+ */
+
+const sampleInput1 = 1; // Output : 9
+const sampleInput2 = 2; // Output : 9009
+const sampleInput3 = 3; // Output : 906609
+
+/**
+ * ==============================
+ * TYPE YOUR PSEUDOCODE BELOW
+FUNCTION checkPalindrome(number)
+    STORE numToString WITH number CONVERT to string
+    STORE numLength WITH numToString length
+
+    FOR i FROM 0 TO numLength DIVIDE BY 2 INCREMENT BY 1
+        IF numToString[index] NOT SAME AS numToString[numLength - 1 - index]
+            DISPLAY FALSE
+        END IF
+    END FOR
+
+    DISPLAY TRUE
+
+
+FUNCTION findBiggestPalindrome(number)
+    IF number < 1 OR number > 4
+        DISPLAY "Invalid input. n should be between 1 and 4."
+    END IF
+
+    STORE min WITH 10 SQUARE number - 1
+    STORE max WITH (10 SQUARE number) - 1
+
+    STORE biggestPalindrome WITH 0
+
+    FOR i FROM max TO min DECREMENT BY 1
+        FOR j FROM i TO min DECREMENT BY 1
+            STORE result WITH i TIMES j
+            IF result MORE THAN biggestPalindrome AND FUNCTION checkPalindrome(result) IS TRUE
+                STORE biggestPalindrome WITH result
+            END IF
+        END FOR
+    END FOR
+
+    DISPLAY biggestPalindrome
+
+ * ==============================
+ * 
+ */
+
+// TYPE YOUR CODE BELOW
+
+function checkPalindrome(number) {
+    const numToString = number.toString()
+    const numLength = numToString.length
+
+    for (let i = 0; i < numLength / 2; i++) {
+        if (numToString[i] !== numToString[numLength - 1 - i]) {
+            return false
+        }
+    }
+
+    return true
+}
+
+function findBiggestPalindrome(number) {
+    if (number < 1 || number > 4) {
+        return "Invalid input. n should be between 1 and 4.";
+    }
+
+    const min = Math.pow(10, number - 1)
+    const max = Math.pow(10, number) - 1
+
+    let biggestPalindrome = 0
+
+    for (let i = max; i >= min; i--) {
+        for (let j = i; j >= min; j--) {
+            const result = i * j;
+            if (result > biggestPalindrome && checkPalindrome(result)) {
+                biggestPalindrome = result;
+            }
+        }
+    }
+
+    return biggestPalindrome;
+}
+
+console.log(findBiggestPalindrome(sampleInput1))
+console.log(findBiggestPalindrome(sampleInput2))
+console.log(findBiggestPalindrome(sampleInput3))

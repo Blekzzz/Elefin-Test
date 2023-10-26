@@ -1,0 +1,40 @@
+body {
+  background-color: whitesmoke;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  padding: 2rem;
+  height: 100vh;
+}
+
+::selection {
+  background: #fe010f;
+  color: whitesmoke;
+}
+
+select:focus {
+  border: 3px solid #fe010f;
+}
+
+.input {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  color: black;
+}
+
+.checkbox:checked+.checkbox-toggle {
+  background-color: #000;
+  border-color: #000;
+}
+
+
+.input-label {
+  color: #40444E;
+}
+
+.password-toggle-button {
+  border-radius: 10px;
+}
+
+.input-button {
+  border-radius: 15px;
+}
